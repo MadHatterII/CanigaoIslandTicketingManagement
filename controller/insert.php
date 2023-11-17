@@ -101,6 +101,15 @@ function insertMembers(){
             }
             // If no exceptions were thrown, commit the transaction
             $conn->commit();
+            $user_id = $_SESSION["user_id"];
+            $user_description = "submit ticket";
+            $timestamp = date("Y-m-d H:i:s");   
+    
+            // Insert the log into the user_logs table
+            $sql = "INSERT INTO user_logs (user_id, activity_description, timestamp) VALUES ('$user_id', '$user_description', '$timestamp')";
+             // Execute the query, replace $conn with your database connection variable
+            mysqli_query($conn, $sql);
+
             echo "<script>
             alert('Ticket completed successfully!');
             window.location.href = 'addmember.php'; 
@@ -108,7 +117,7 @@ function insertMembers(){
         } catch (Exception $e) {
             // If an exception was thrown, roll back the transaction
             $conn->rollback();
-            echo "Transaction failed: " . $e->getMessage();
+            echo "Transaction failed: " . $e->getMessage()  ;
         }
         // Close the connection
         $conn->close();

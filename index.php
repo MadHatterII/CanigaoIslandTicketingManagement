@@ -29,7 +29,7 @@
 <div class="form-popup">
 
 
-<div>papart</div>
+
   <span class="close-btn material-symbols-rounded">close</span>
   <div class="form-box login">
     <div class="form-details">

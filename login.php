@@ -6,39 +6,6 @@ session_start();
 if (isset($_SESSION["user_id"])) {
     header("Location: tickethome.php");
     exit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 }
 
 // Include the database connection
@@ -61,6 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($login_type == "ticketing_agent") {
         $query = "SELECT * FROM useraccounts WHERE username = '$user' AND password = '$password'";
         $id_column = "agentID"; // Use the correct column name for the ID in the useraccounts table
+        // $user_id = $_SESSION["user_id"];
+        // $user_description = "User logged in";
+        // $timestamp = date("Y-m-d H:i:s");   
+
+        // // Insert the log into the user_logs table
+        // $sql = "INSERT INTO user_logs (user_id, activity_description, timestamp) VALUES ('$user_id', '$user_description', '$timestamp')";
+        //  // Execute the query, replace $conn with your database connection variable
+        // mysqli_query($conn, $sql);
     } else {
         $login_error = "Invalid login type. Please try again.";
     }
@@ -76,6 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($login_type == "admin") {
             header("Location: Adminindex.php");
         } elseif ($login_type == "ticketing_agent") {
+            $user_id = $_SESSION["user_id"];
+            $user_description = "Logged in";
+            $timestamp = date("Y-m-d H:i:s");   
+    
+            // Insert the log into the user_logs table
+            $sql = "INSERT INTO user_logs (user_id, activity_description, timestamp) VALUES ('$user_id', '$user_description', '$timestamp')";
+             // Execute the query, replace $conn with your database connection variable
+            mysqli_query($conn, $sql);
             header("Location: tickethome.php");
         }
         exit;
