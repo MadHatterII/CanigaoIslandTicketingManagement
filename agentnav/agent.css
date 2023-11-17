@@ -1,0 +1,111 @@
+     /* Custom CSS for Color Scheme */
+     body {
+        background-color: #f0f8ff; /* Light blue background */
+    }
+
+    /* Header */
+    header {
+        background: linear-gradient(90deg, rgba(16,102,125,1) 0%, rgba(35,179,190,1) 12%, rgba(208,170,89,1) 100%);
+        color:  #ffffff; /* White text */
+        padding: 20px;
+        text-align: center;
+    }
+
+    /* Navbar */
+    nav {
+        background: #fff5ae;
+        margin-bottom: 20px;
+    }
+
+    .navbar-brand {
+        color: #000; /* Black text */
+        font-weight: bold;
+    }
+
+    .navbar-toggler-icon {
+        color: #000; /* Black text */
+    }
+
+    .nav-link {
+        color: #000; /* Black text */
+    }
+
+    .navbar .navbar-nav .nav-link.active {
+        color: #00563F !important; /* Dark green for active link */
+    }
+
+    .navbar .navbar-nav .nav-link.logout-btn {
+        color: #e74c3c; /* Red for logout button */
+    }
+
+    /* Main Content */
+    main {
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+        background-color: #333; /* Set your desired background color */
+        color: #ffffff; /* Set your desired text color */
+        text-align: center;
+        padding: 10px; /* Add padding for better spacing */
+        max-height: 100px; /* Set the maximum height */
+        overflow: hidden; /* Hide overflow content if it exceeds the maximum height */
+    }
+    .overview-box {
+        padding: 20px;
+    }
+
+    /* Add some spacing for the navbar items */
+    .navbar .navbar-nav .nav-item {
+        margin-right: 20px;
+    }
+    @media only screen and (max-width: 978px) {
+        /* CSS for screens with a max-width of 978px */
+        .navbar-brand {
+            font-size: 24px;
+        }
+
+        .nav-link {
+            margin-right: 10px;
+        }
+    }
+
+    input[type="radio"] {
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid currentColor;
+        border-radius: 50%;
+        transform: translateY(-0.075em);
+    }
+
+    @media only screen and (max-width: 855px) {
+        /* CSS for screens with a max-width of 855px */
+        .navbar-toggler-icon {
+            color: #000;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        /* CSS for screens with a max-width of 480px */
+        .navbar-brand {
+            font-size: 20px;
+        }
+
+        .nav-link {
+            margin-right: 5px;
+        }
+    }
+    footer {
+        background-color: #333; /* Set your desired background color */
+        color: #ffffff; /* Set your desired text color */
+        text-align: center;
+        padding: 10px; /* Add padding for better spacing */
+    }
