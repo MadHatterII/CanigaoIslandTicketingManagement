@@ -1,8 +1,8 @@
 <?php
-include_once('../controller/insert.php'); // Assuming this file contains the getConnection function
+include_once('../controller/insert.php'); 
 
 $conn = getConnection(); // This function should establish a database connection
-
+ 
 if (isset($_GET['groupName'])) {
     $groupName = $_GET['groupName']; // Get the groupName from the URL parameter
 

@@ -78,35 +78,14 @@
           <!-- MAIN CARDS STARTS HERE -->
           <div class="main__cards">
             <!-- Bootstrap Cards -->
-            <div class="card bg-light">
-              <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Tourist</p>
-                <span class="font-bold text-title">578</span>
-              </div>
-            </div>
 
-            <div class="card bg-light">
-              <i class="fa fa-home fa-2x text-red" aria-hidden="true"></i>
-              <div class="card_inner">
-                <p class="text-primary-p">Available Cottages</p>
-                <span class="font-bold text-title">9</span>
-              </div>
-            </div>
-
-            <div class="card bg-light">
-              <i class="fa fa-ship fa-2x text-yellow" aria-hidden="true"></i>
-               <div class="card_inner">
-                 <p class="text-primary-p">Active Boat</p>
-                 <span class="font-bold text-title">12</span>
-              </div>
-            </div>
-
-
-           <?php
+            <?php
 include 'connection.php';
-// Perform a SELECT query to retrieve data from your table
-$sql = "SELECT * FROM Useraccounts"; 
+
+
+//tourist count
+
+$sql = "SELECT * FROM members"; 
 
 // Execute the query and store the result in a variable
 $result = mysqli_query($conn, $sql);
@@ -116,9 +95,77 @@ if (!$result) {
     die("Error: " . mysqli_error($conn));
 }
 
+
+$activeTouristCount = mysqli_num_rows($result);
+
+
+// cottage query
+$totalCottages = 20;
+$sql1 = "SELECT COUNT(cottage_type) as cottage FROM bookings WHERE status = 'IN'"; 
+
+// Execute the query and store the result in a variable
+$result1 = mysqli_query($conn, $sql1);
+$row = mysqli_fetch_assoc($result1);
+$bookedCottages = $row['cottage'];
+
+
+
+$activeAvailableCottagesCount = $totalCottages - $bookedCottages;
+
+//boat count
+$sql2 = "SELECT * FROM boats"; 
+
+// Execute the query and store the result in a variable
+$result2 = mysqli_query($conn, $sql2);
+
+// Check if the query was successful
+if (!$result2) {
+    die("Error: " . mysqli_error($conn));
+}
+
+
+$activeBoatsCount = mysqli_num_rows($result2);
+
+
+//ticketing agent count
+$sql3 = "SELECT * FROM Useraccounts"; 
+
+// Execute the query and store the result in a variable
+$result3 = mysqli_query($conn, $sql3);
+
+// Check if the query was successful
+if (!$result3) {
+    die("Error: " . mysqli_error($conn));
+}
+
 // Count the active Ticketing Agents
-$activeTicketingAgentsCount = mysqli_num_rows($result);
+$activeTicketingAgentsCount = mysqli_num_rows($result3);
 ?>
+            <div class="card bg-light">
+              <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Tourist</p>
+                <span class="font-bold text-title"><?php echo $activeTouristCount; ?></span>
+              </div>
+            </div>
+
+            <div class="card bg-light">
+              <i class="fa fa-home fa-2x text-red" aria-hidden="true"></i>
+              <div class="card_inner">
+                <p class="text-primary-p">Available Cottages</p>
+                <span class="font-bold text-title"><?php echo $activeAvailableCottagesCount; ?></span>
+              </div>
+            </div>
+
+            <div class="card bg-light">
+              <i class="fa fa-ship fa-2x text-yellow" aria-hidden="true"></i>
+               <div class="card_inner">
+                 <p class="text-primary-p">Active Boat</p>
+                 <span class="font-bold text-title"><?php echo $activeBoatsCount; ?></span>
+              </div>
+            </div>
+
+
             <div class="card bg-light">
              <i class="fa fa-user-secret fa-2x text-green" aria-hidden="true"></i>
                  <div class="card_inner">
@@ -215,6 +262,7 @@ $activeTicketingAgentsCount = mysqli_num_rows($result);
             <i class="fa fa-money "></i>
              <a href="prices.php">Prices</a>
           </div>
+          
 
           <h2>MAINTENANCE MANAGEMENT</h2>
           <div class="sidebar__link">
@@ -236,7 +284,7 @@ $activeTicketingAgentsCount = mysqli_num_rows($result);
           <hr>
           <div class="sidebar__logout">
             <i class="fa fa-power-off fa-2x text-red"></i>
-            <a href="#">Log out</a>
+            <a href="logout.php">Log out</a>
           </div>
           <h2></h2>
           <div class="sidebar__link">

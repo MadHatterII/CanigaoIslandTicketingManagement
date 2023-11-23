@@ -59,6 +59,59 @@ $mysqli->close();
     .custom-white {
     color:rgb(60,179,113) !important; /* Use !important to ensure the style is applied */
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+}
+
+/* Style for the modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+}
+
+/* Style for the modal close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Style for the modal heading */
+#modal-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Style for the modal data */
+#modal-data {
+    font-size: 1.2em;
+}
+
+/* Add styles for buttons inside the modal */
+.modal-content button {
+    margin-top: 10px;
+}
 
     </style>
 </head>
@@ -77,7 +130,7 @@ $mysqli->close();
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
 <div class="container">
-    <a class="navbar-brand" href="tickethome.php">Wander Lust</a>
+    <a class="navbar-brand" href="../tickethome.php">Wander Lust</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -139,13 +192,13 @@ $mysqli->close();
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modal-heading"></h2>
-            <p id="modal-data">Some text in the Modal..</p>
+            <p id="modal-data"></p>
         </div>
     </div>
 </body>
 <footer>
-    <p>all right reserves</p>
-</footer>
+        <p>&copy; 2023 Wander Lust Ticketing System</p>
+    </footer>
 </html>
 
 <script>

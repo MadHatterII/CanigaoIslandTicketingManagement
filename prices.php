@@ -274,6 +274,10 @@ $conn->close();
             <i class="fa fa-money "></i>
              <a href="prices.php">Prices</a>
           </div>
+          <div class="sidebar__link">
+          <i class="fa fa-user "></i>
+          <a href="Userlog.php">User Log</a>
+        </div>
 
           <h2>MAINTENANCE MANAGEMENT</h2>
           <div class="sidebar__link">

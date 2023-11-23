@@ -69,7 +69,7 @@ $bookedCottages = $row['booked'];
 $availableCottages = $totalCottages - $bookedCottages;
 
 // Count number for boats
-$sql1 = "SELECT COUNT( boatName) AS boatCount FROM boat";
+$sql1 = "SELECT COUNT( boatName) AS boatCount FROM boats";
 $result1 = mysqli_query($conn, $sql1);
 $row1 = mysqli_fetch_assoc($result1);
 $boatCount = $row1['boatCount'];
