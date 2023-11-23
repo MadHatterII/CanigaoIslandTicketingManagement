@@ -12,14 +12,7 @@ if (!isset($_SESSION["user_id"])) {
 include('controller/insert.php');
 
 insertInfoTicket();
-
-
 ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
